@@ -10,6 +10,7 @@ import mazesolverImage from "../assets/game-lounge/istockphoto-1759350191-612x61
 import snakegameImage from "../assets/game-lounge/649576793c3fe77db6244f98-faxfsign-snake-shaped-neon-sign-green.jpg";
 import game2048Image from "../assets/game-lounge/2048-icon.png";
 import connect4Image from "../assets/game-lounge/connect4_neon_icon.png";
+import typingImage from "../assets/game-lounge/unnamed.png";
 import DailyChallenges from "./DailyChallenges";
 
 export default function Home() {
@@ -95,6 +96,15 @@ export default function Home() {
                             <img src={connect4Image} alt="Connect 4" />
                         </div>
                         <h3>Connect 4</h3>
+                    </div>
+                </Link>
+
+                <Link to="/TypingSpeed" className="game-card-link">
+                    <div className="game-card">
+                        <div className="game-image-wrapper">
+                            <img src={typingImage} alt="Typing Speed Test" />
+                        </div>
+                        <h3>Typing Speed Test</h3>
                     </div>
                 </Link>
             </div>

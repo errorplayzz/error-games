@@ -12,6 +12,7 @@ import NumberGuessingGame from './game-lounge/Number Guessing-Game/Number Guessi
 import MazeSolver from './game-lounge/Maze-Solver/Maze-Solver';
 import Game2048 from './game-lounge/2048/2048';
 import Connect4 from './game-lounge/Connect-4/Connect-4';
+import TypingSpeed from './game-lounge/Typing-Speed/Typing-Speed';
 import Profile from './profile/Profile';
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
           <Route path="/MazeSolver" element={<MazeSolver />} />
           <Route path="/2048" element={<Game2048 />} />
           <Route path="/Connect4" element={<Connect4 />} />
+          <Route path="/TypingSpeed" element={<TypingSpeed />} />
           <Route path="/profile" element={<Profile />} />
         </Routes>
       </div>
