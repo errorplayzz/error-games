@@ -8,6 +8,7 @@ import rockpaperscissorsImage from "../assets/game-lounge/rock-paper-scissors-ne
 import numberguessinggameImage from "../assets/game-lounge/images.jpg";
 import mazesolverImage from "../assets/game-lounge/istockphoto-1759350191-612x612.jpg";
 import snakegameImage from "../assets/game-lounge/649576793c3fe77db6244f98-faxfsign-snake-shaped-neon-sign-green.jpg";
+import game2048Image from "../assets/game-lounge/2048-icon.png";
 
 
 
@@ -74,6 +75,15 @@ export default function Home() {
                             <img src={snakegameImage} alt="Snake Game" />
                         </div>
                         <h3>Snake Game</h3>
+                    </div>
+                </Link>
+
+                <Link to="/2048" className="game-card-link">
+                    <div className="game-card">
+                        <div className="game-image-wrapper">
+                            <img src={game2048Image} alt="2048 Game" />
+                        </div>
+                        <h3>2048</h3>
                     </div>
                 </Link>
             </div>
