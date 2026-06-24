@@ -34,9 +34,9 @@
 
 .maze {
   display: grid;
-  grid-template-columns: repeat(10, 28px);
-  grid-template-rows: repeat(10, 28px);
-  gap: 3px;
+  grid-template-columns: repeat(15, 22px);
+  grid-template-rows: repeat(15, 22px);
+  gap: 2px;
   background-color: #1a0033;
   padding: 12px;
   border-radius: 12px;

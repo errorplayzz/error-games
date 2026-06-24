@@ -2,20 +2,47 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./Maze-Solver.css";
 
-const SIZE = 10; // Maze size (10x10 grid)
+const SIZE = 15; // Increased maze size
 const WALL = 1;
 const PATH = 0;
 
+const isSolvable = (maze) => {
+  const visited = Array(SIZE).fill(null).map(() => Array(SIZE).fill(false));
+  const dfsCheck = (x, y) => {
+    if (x < 0 || y < 0 || x >= SIZE || y >= SIZE || maze[y][x] === WALL || visited[y][x]) return false;
+    if (x === SIZE - 1 && y === SIZE - 1) return true;
+    visited[y][x] = true;
+    const dirs = [{dx:1,dy:0}, {dx:0,dy:1}, {dx:-1,dy:0}, {dx:0,dy:-1}];
+    for (let {dx, dy} of dirs) {
+      if (dfsCheck(x+dx, y+dy)) return true;
+    }
+    return false;
+  };
+  return dfsCheck(0, 0);
+};
+
 const generateMaze = () => {
-  const maze = Array(SIZE)
-    .fill(null)
-    .map(() =>
-      Array(SIZE)
-        .fill(null)
-        .map(() => (Math.random() > 0.7 ? WALL : PATH))
-    );
-  maze[0][0] = PATH; // Start point
-  maze[SIZE - 1][SIZE - 1] = PATH; // End point
+  let maze;
+  let solvable = false;
+  while (!solvable) {
+    maze = Array(SIZE)
+      .fill(null)
+      .map(() =>
+        Array(SIZE)
+          .fill(null)
+          .map(() => (Math.random() > 0.7 ? WALL : PATH))
+      );
+    maze[0][0] = PATH; 
+    maze[SIZE - 1][SIZE - 1] = PATH; 
+    
+    // Clear corners to improve solvability generation speed
+    maze[0][1] = PATH;
+    maze[1][0] = PATH;
+    maze[SIZE - 1][SIZE - 2] = PATH;
+    maze[SIZE - 2][SIZE - 1] = PATH;
+
+    solvable = isSolvable(maze);
+  }
   return maze;
 };
 
