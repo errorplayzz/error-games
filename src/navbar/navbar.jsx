@@ -1,7 +1,7 @@
 import React from "react";
 import "./navbar.css";
 import { Link } from 'react-router-dom';
-import logoImage from "../assets/cooltext475698341786778removebg-preview.png";
+import logoImage from "../assets/error game logo.png";
 import { useGameContext } from "../context/GameContext";
 
 
