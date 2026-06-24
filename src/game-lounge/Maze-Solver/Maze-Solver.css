@@ -12,8 +12,24 @@
 .maze-solver h1 {
   color: #ffffff;
   font-size: 32px;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
   text-shadow: 2px 2px 0px #00ffff, -2px -2px 0px #ff00ff;
+}
+
+.maze-solver p.instructions {
+  font-size: 16px;
+  color: white;
+  margin-bottom: 15px;
+  max-width: 450px;
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 10px 15px;
+  border-radius: 8px;
+  border: 1px solid #ff00ff;
+  line-height: 1.4;
+}
+
+.maze-solver p.instructions strong {
+  color: #00ffff;
 }
 
 .maze {
@@ -41,6 +57,18 @@
   background-color: #ff00ff;
   box-shadow: 0 0 5px #ff00ff;
   border-radius: 4px;
+}
+
+.cell.exit {
+  background-color: #00ff00;
+  box-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00;
+  border-radius: 4px;
+  animation: pulse-exit 1s infinite alternate;
+}
+
+@keyframes pulse-exit {
+  from { transform: scale(0.8); opacity: 0.8; }
+  to { transform: scale(1); opacity: 1; }
 }
 
 .cell.player {

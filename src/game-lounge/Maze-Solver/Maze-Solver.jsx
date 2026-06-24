@@ -102,11 +102,13 @@ const MazeSolver = () => {
     <div className="maze-solver" style={{ position: "relative" }}>
       <Link to="/" className="back-button">⬅ Back</Link>
       <h1>Maze Solver</h1>
+      <p className="instructions">Use your <strong>Arrow Keys</strong> to guide the cyan sphere to the glowing green exit! Use <strong>New Maze</strong> if you get trapped, or <strong>Solve Maze</strong> to find the path automatically.</p>
       <div className="maze">
         {maze.map((row, rowIndex) =>
           row.map((cell, colIndex) => {
             let className = "cell";
             if (cell === WALL) className += " wall";
+            if (rowIndex === SIZE - 1 && colIndex === SIZE - 1) className += " exit";
             if (playerPos.x === colIndex && playerPos.y === rowIndex) className += " player";
             if (solvedPath.some((p) => p.x === colIndex && p.y === rowIndex)) className += " path";
             return <div key={`${rowIndex}-${colIndex}`} className={className}></div>;
