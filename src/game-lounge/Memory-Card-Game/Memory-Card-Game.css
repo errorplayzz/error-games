@@ -1,0 +1,100 @@
+/* Memory-Card-Game.css */
+
+.memory-card-game {
+  text-align: center;
+  font-family: 'Outfit', sans-serif;
+  padding: 2vh 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.memory-card-game h1 {
+  color: #ffffff;
+  font-size: 32px;
+  margin-bottom: 8px;
+  text-shadow: 2px 2px 0px #00ffff, -2px -2px 0px #ff00ff;
+}
+
+.memory-card-game p {
+  font-size: 18px;
+  font-weight: bold;
+  color: #ffffff;
+  background-color: #1a0033;
+  padding: 4px 15px;
+  border-radius: 8px;
+  border: 2px solid #ff00ff;
+  margin-bottom: 10px;
+}
+
+.game-board {
+  display: grid;
+  grid-template-columns: repeat(4, 70px);
+  gap: 10px;
+  justify-content: center;
+  background-color: #1a0033;
+  padding: 15px;
+  border-radius: 15px;
+  border: 4px solid #00ffff;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+  margin-bottom: 15px;
+}
+
+.card {
+  width: 70px;
+  height: 70px;
+  font-size: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 3px solid #ff00ff;
+  color: #ff00ff;
+  cursor: pointer;
+  border-radius: 10px;
+  user-select: none;
+  transition: 0.2s;
+  box-shadow: inset 0 0 10px rgba(0,0,0,0.5);
+}
+
+.card:hover {
+  background-color: #4a0080;
+  transform: scale(1.05);
+  border-color: #00ffff;
+  color: #00ffff;
+}
+
+.card.flipped {
+  background-color: white;
+  border-color: white;
+  color: black;
+  cursor: default;
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+}
+
+.memory-card-game button {
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  background-color: #00ffff;
+  color: #1a0033;
+  border: 3px solid white;
+  cursor: pointer;
+  border-radius: 12px;
+  transition: 0.3s;
+}
+
+.memory-card-game button:hover {
+  background-color: #ff00ff;
+  color: white;
+  border-color: #1a0033;
+  transform: translateY(-3px);
+}
+
+.win-message {
+  font-size: 22px !important;
+  color: #00ffff !important;
+  border-color: #00ffff !important;
+  text-shadow: 0 0 10px #00ffff;
+}

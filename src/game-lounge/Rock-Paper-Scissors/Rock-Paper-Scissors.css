@@ -1,0 +1,37 @@
+.rps-game {
+    text-align: center;
+    font-family: Arial, sans-serif;
+  }
+  
+  h1 {
+    color: black;
+  }
+  
+  .choices {
+    margin: 20px;
+  }
+  
+  button {
+    padding: 10px 20px;
+    font-size: 16px;
+    margin: 10px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    background-color: blue;
+    color: white;
+  }
+  
+  button:hover {
+    background-color: darkblue;
+  }
+  
+  .results {
+    font-size: 18px;
+    margin-top: 20px;
+  }
+  
+  h2 {
+    color: green;
+  }
+  
