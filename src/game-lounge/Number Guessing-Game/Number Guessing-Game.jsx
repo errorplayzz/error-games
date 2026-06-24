@@ -19,10 +19,24 @@ const NumberGuessingGame = () => {
     setAttempts(attempts + 1);
     if (userGuess === targetNumber) {
       setMessage(`🎉 Correct! You guessed it in ${attempts + 1} tries.`);
-    } else if (userGuess < targetNumber) {
-      setMessage("Too low! Try again.");
     } else {
-      setMessage("Too high! Try again.");
+      const diff = Math.abs(targetNumber - userGuess);
+      let hint = "";
+      if (diff <= 3) {
+        hint = "🔥 Extremely close! ";
+      } else if (diff <= 10) {
+        hint = "🥵 Very close! ";
+      } else if (diff <= 25) {
+        hint = "🙂 Getting closer. ";
+      } else {
+        hint = "🥶 Way off! ";
+      }
+      
+      if (userGuess < targetNumber) {
+        setMessage(hint + "Too low.");
+      } else {
+        setMessage(hint + "Too high.");
+      }
     }
   };
 
