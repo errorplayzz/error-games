@@ -1,0 +1,132 @@
+/* Connect-4.css */
+
+.connect4-game {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Outfit', sans-serif;
+    color: white;
+    margin-top: 5vh;
+}
+
+.connect4-game .header h1 {
+    font-size: 40px;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 0px #ff00ff, -2px -2px 0px #00ffff;
+}
+
+.connect4-game .status-box {
+    font-size: 24px;
+    font-weight: bold;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 10px 30px;
+    border-radius: 10px;
+    border: 2px solid #00ffff;
+    margin-bottom: 20px;
+    min-width: 200px;
+    text-align: center;
+}
+
+.text-red {
+    color: #ff3366;
+    text-shadow: 0 0 10px #ff3366;
+}
+
+.text-yellow {
+    color: #ffff00;
+    text-shadow: 0 0 10px #ffff00;
+}
+
+.board-container {
+    background: #0044cc;
+    padding: 15px;
+    border-radius: 15px;
+    border: 4px solid #002266;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+}
+
+.connect4-board {
+    display: grid;
+    grid-template-columns: repeat(7, 60px);
+    grid-template-rows: repeat(6, 60px);
+    gap: 10px;
+}
+
+.connect4-cell {
+    width: 60px;
+    height: 60px;
+    background: #003399;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: inset 0 5px 10px rgba(0,0,0,0.5);
+    transition: background 0.3s;
+}
+
+.connect4-cell:hover {
+    background: #0055ff;
+}
+
+.token {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: transparent;
+    transition: transform 0.3s ease, background 0.3s;
+}
+
+.token.red {
+    background: radial-gradient(circle at 30% 30%, #ff6699, #ff0033);
+    box-shadow: 0 4px 10px rgba(255, 0, 0, 0.5);
+    animation: drop 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.token.yellow {
+    background: radial-gradient(circle at 30% 30%, #ffff66, #ffcc00);
+    box-shadow: 0 4px 10px rgba(255, 255, 0, 0.5);
+    animation: drop 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+@keyframes drop {
+    0% { transform: translateY(-300px); }
+    100% { transform: translateY(0); }
+}
+
+.connect4-game .reset-btn {
+    margin-top: 30px;
+    padding: 12px 30px;
+    font-size: 20px;
+    font-weight: bold;
+    background-color: #ff00ff;
+    color: white;
+    border: 3px solid white;
+    cursor: pointer;
+    border-radius: 12px;
+    transition: 0.3s;
+}
+
+.connect4-game .reset-btn:hover {
+    background-color: #00ffff;
+    color: #1a0033;
+    border-color: #1a0033;
+    transform: translateY(-3px);
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .connect4-board {
+        grid-template-columns: repeat(7, 40px);
+        grid-template-rows: repeat(6, 40px);
+        gap: 5px;
+    }
+    .connect4-cell {
+        width: 40px;
+        height: 40px;
+    }
+    .token {
+        width: 32px;
+        height: 32px;
+    }
+}
