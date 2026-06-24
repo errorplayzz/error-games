@@ -1,12 +1,11 @@
 .home-container {
     position: relative;
     width: 100%;
-    height: calc(100vh - 70px); /* exact height of viewport minus navbar */
-    overflow: hidden; /* no scrolling */
+    min-height: calc(100vh - 70px);
+    overflow-y: auto;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    padding-bottom: 2vh;
+    padding-bottom: 50px;
 }
 
 .background-video {
