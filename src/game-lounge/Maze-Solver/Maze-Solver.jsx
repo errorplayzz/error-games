@@ -23,9 +23,19 @@ const MazeSolver = () => {
   const [maze, setMaze] = useState(generateMaze());
   const [playerPos, setPlayerPos] = useState({ x: 0, y: 0 });
   const [solvedPath, setSolvedPath] = useState([]);
+  const [message, setMessage] = useState("");
+
+  const startNewMaze = () => {
+    setMaze(generateMaze());
+    setPlayerPos({ x: 0, y: 0 });
+    setSolvedPath([]);
+    setMessage("");
+  };
 
   useEffect(() => {
     const handleKeyPress = (event) => {
+      if (playerPos.x === SIZE - 1 && playerPos.y === SIZE - 1) return; // Block move if won
+      
       const { x, y } = playerPos;
       let newX = x;
       let newY = y;
@@ -37,6 +47,9 @@ const MazeSolver = () => {
 
       if (maze[newY][newX] !== WALL) {
         setPlayerPos({ x: newX, y: newY });
+        if (newX === SIZE - 1 && newY === SIZE - 1) {
+          setMessage("🎉 You won! You reached the end!");
+        }
       }
     };
 
@@ -50,9 +63,14 @@ const MazeSolver = () => {
       .map(() => Array(SIZE).fill(false));
 
     const path = [];
-    const found = dfs(0, 0, path, visited);
+    const found = dfs(playerPos.x, playerPos.y, path, visited);
 
-    if (found) setSolvedPath(path);
+    if (found) {
+      setSolvedPath(path);
+      setMessage("");
+    } else {
+      setMessage("This maze is unsolvable! Try a new one.");
+    }
   };
 
   const dfs = (x, y, path, visited) => {
@@ -95,7 +113,11 @@ const MazeSolver = () => {
           })
         )}
       </div>
-      <button onClick={solveMaze}>Solve Maze</button>
+      {message && <p className="message" style={{marginBottom: "15px"}}>{message}</p>}
+      <div style={{ display: 'flex', gap: '20px' }}>
+        <button onClick={solveMaze}>Solve Maze</button>
+        <button onClick={startNewMaze}>New Maze</button>
+      </div>
     </div>
   );
 };
