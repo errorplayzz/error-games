@@ -1,12 +1,22 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './2048.css';
+import { useGameContext } from '../../context/GameContext';
 
 const Game2048 = () => {
     const [grid, setGrid] = useState(getInitialGrid());
     const [score, setScore] = useState(0);
     const [gameOver, setGameOver] = useState(false);
     const [gameWon, setGameWon] = useState(false);
+    const { updateStats } = useGameContext();
+    const [rewardGiven, setRewardGiven] = useState(false);
+
+    useEffect(() => {
+        if (gameOver && !rewardGiven) {
+            updateStats('2048', score);
+            setRewardGiven(true);
+        }
+    }, [gameOver, score, rewardGiven, updateStats]);
 
     function getInitialGrid() {
         const initialGrid = Array(4).fill().map(() => Array(4).fill(0));
@@ -130,6 +140,7 @@ const Game2048 = () => {
         setScore(0);
         setGameOver(false);
         setGameWon(false);
+        setRewardGiven(false);
     };
 
     return (

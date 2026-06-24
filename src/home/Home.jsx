@@ -9,8 +9,7 @@ import numberguessinggameImage from "../assets/game-lounge/images.jpg";
 import mazesolverImage from "../assets/game-lounge/istockphoto-1759350191-612x612.jpg";
 import snakegameImage from "../assets/game-lounge/649576793c3fe77db6244f98-faxfsign-snake-shaped-neon-sign-green.jpg";
 import game2048Image from "../assets/game-lounge/2048-icon.png";
-
-
+import DailyChallenges from "./DailyChallenges";
 
 export default function Home() {
     return (
@@ -23,6 +22,8 @@ export default function Home() {
                 <h1 className="glowing-text">Play your favorite games</h1>
             </div>
             
+            <DailyChallenges />
+
             <div className="games-grid">
                 <Link to="/tictactoe" className="game-card-link">
                     <div className="game-card">

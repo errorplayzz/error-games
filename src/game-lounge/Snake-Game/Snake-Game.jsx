@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { Link } from "react-router-dom";
 import "./Snake-Game.css";
+import { useGameContext } from "../../context/GameContext";
 
 const GRID_SIZE = 20;
 const INITIAL_SNAKE = [{ x: 10, y: 10 }];
@@ -10,6 +11,7 @@ const SPEED_INCREMENT = 5;
 const MIN_SPEED = 50;
 
 const SnakeGame = () => {
+  const { updateStats } = useGameContext();
   const [snake, setSnake] = useState(INITIAL_SNAKE);
   const [direction, setDirection] = useState(INITIAL_DIRECTION);
   const [food, setFood] = useState({ x: 5, y: 5 }); 
@@ -17,6 +19,14 @@ const SnakeGame = () => {
   const [score, setScore] = useState(0);
   const [speed, setSpeed] = useState(INITIAL_SPEED);
   const [isPaused, setIsPaused] = useState(false);
+  const [rewardGiven, setRewardGiven] = useState(false);
+
+  useEffect(() => {
+    if (gameOver && !rewardGiven) {
+      updateStats('snake', score);
+      setRewardGiven(true);
+    }
+  }, [gameOver, score, rewardGiven, updateStats]);
 
   const generateFood = useCallback((currentSnake) => {
     let newFood;
@@ -133,6 +143,7 @@ const SnakeGame = () => {
     setScore(0);
     setSpeed(INITIAL_SPEED);
     setIsPaused(false);
+    setRewardGiven(false);
   };
 
   return (

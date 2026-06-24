@@ -96,6 +96,51 @@ h1 {
     margin-bottom: 10px;
 }
 
+/* Tabs */
+.tabs {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.tab-btn {
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(0, 255, 255, 0.3);
+    color: white;
+    padding: 10px 25px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    font-family: 'Outfit', sans-serif;
+    transition: 0.3s;
+}
+
+.tab-btn:hover {
+    background: rgba(0, 255, 255, 0.2);
+    transform: translateY(-2px);
+}
+
+.tab-btn.active {
+    background: #00ffff;
+    color: #1a0033;
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.6);
+    border-color: #00ffff;
+}
+
+/* User Highlight */
+.user-highlight {
+    border: 3px solid #ff00ff !important;
+    box-shadow: 0 0 20px #ff00ff !important;
+}
+
+.user-row td {
+    color: #ff00ff;
+    font-weight: bold;
+    text-shadow: 0 0 5px #ff00ff;
+}
+
 /* Score Table */
 .score-table {
     background: rgba(255, 255, 255, 0.39);

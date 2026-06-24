@@ -11,6 +11,7 @@ import RockPaperScissors from './game-lounge/Rock-Paper-Scissors/Rock-Paper-Scis
 import NumberGuessingGame from './game-lounge/Number Guessing-Game/Number Guessing-Game';
 import MazeSolver from './game-lounge/Maze-Solver/Maze-Solver';
 import Game2048 from './game-lounge/2048/2048';
+import Profile from './profile/Profile';
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
           <Route path="/NumberGuessingGame" element={<NumberGuessingGame />} />
           <Route path="/MazeSolver" element={<MazeSolver />} />
           <Route path="/2048" element={<Game2048 />} />
+          <Route path="/profile" element={<Profile />} />
         </Routes>
       </div>
     </Router>

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./Maze-Solver.css";
+import { useGameContext } from "../../context/GameContext";
 
 const SIZE = 15; // Increased maze size
 const WALL = 1;
@@ -47,6 +48,7 @@ const generateMaze = () => {
 };
 
 const MazeSolver = () => {
+  const { updateStats } = useGameContext();
   const [maze, setMaze] = useState(generateMaze());
   const [playerPos, setPlayerPos] = useState({ x: 0, y: 0 });
   const [solvedPath, setSolvedPath] = useState([]);
@@ -76,6 +78,7 @@ const MazeSolver = () => {
         setPlayerPos({ x: newX, y: newY });
         if (newX === SIZE - 1 && newY === SIZE - 1) {
           setMessage("🎉 You won! You reached the end!");
+          updateStats('maze', 1);
         }
       }
     };

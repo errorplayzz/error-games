@@ -1,13 +1,23 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./tic-tac-toe.css";
 import backgroundVideo from '../../assets/144259-784302971_medium.mp4';
+import { useGameContext } from '../../context/GameContext';
 
 const TicTacToe = () => { 
+  const { updateStats } = useGameContext();
   const [board, setBoard] = useState(Array(9).fill(null));
   const [isXNext, setIsXNext] = useState(true);
+  const [rewardGiven, setRewardGiven] = useState(false);
   const winner = calculateWinner(board);
   const isDraw = !winner && board.every(cell => cell !== null);
+
+  useEffect(() => {
+    if (winner === 'X' && !rewardGiven) {
+        updateStats('tictactoe', 'win');
+        setRewardGiven(true);
+    }
+  }, [winner, rewardGiven, updateStats]);
 
   const handleClick = (index) => {
     if (board[index] || winner) return;
@@ -21,6 +31,7 @@ const TicTacToe = () => {
   const handleReset = () => {
     setBoard(Array(9).fill(null));
     setIsXNext(true);
+    setRewardGiven(false);
   };
 
   return (

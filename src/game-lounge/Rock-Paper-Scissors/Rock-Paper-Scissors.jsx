@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./Rock-Paper-Scissors.css";
+import { useGameContext } from "../../context/GameContext";
 
 const choices = ["Rock", "Paper", "Scissors"];
 
 const RockPaperScissors = () => {
+  const { updateStats } = useGameContext();
   const [userChoice, setUserChoice] = useState(null);
   const [computerChoice, setComputerChoice] = useState(null);
   const [result, setResult] = useState("");
@@ -25,6 +27,7 @@ const RockPaperScissors = () => {
       (user === "Scissors" && computer === "Paper")
     ) {
       setResult("You Win!");
+      updateStats('rockpaperscissors', 'win');
     } else {
       setResult("You Lose!");
     }

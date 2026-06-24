@@ -1,0 +1,155 @@
+/* Profile.css */
+.profile-page {
+    padding: 40px;
+    color: white;
+    font-family: 'Outfit', sans-serif;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.profile-header {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    margin-bottom: 40px;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 30px;
+    border-radius: 20px;
+    border: 1px solid rgba(0, 255, 255, 0.3);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.profile-avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background: #1a0033;
+    border: 4px solid #00ffff;
+    box-shadow: 0 0 20px #00ffff;
+}
+
+.profile-info h1 {
+    font-size: 40px;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 0px #ff00ff;
+}
+
+.level-badge {
+    display: inline-block;
+    background: linear-gradient(135deg, #00ffff, #0088ff);
+    color: #1a0033;
+    font-weight: bold;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 16px;
+    box-shadow: 0 0 10px #00ffff;
+}
+
+.xp-container {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 20px;
+    border-radius: 15px;
+    margin-bottom: 40px;
+    border: 1px solid rgba(255, 0, 255, 0.3);
+}
+
+.xp-text {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #ff00ff;
+}
+
+.xp-bar-bg {
+    width: 100%;
+    height: 20px;
+    background: #1a0033;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.5);
+}
+
+.xp-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #ff00ff, #00ffff);
+    border-radius: 10px;
+    transition: width 0.5s ease-out;
+    box-shadow: 0 0 10px #00ffff;
+}
+
+.profile-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+.stats-section h2, .achievements-section h2 {
+    color: #00ffff;
+    margin-bottom: 20px;
+    border-bottom: 2px solid rgba(0, 255, 255, 0.3);
+    padding-bottom: 10px;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+}
+
+.stat-card {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 15px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: 0.3s;
+}
+
+.stat-card:hover {
+    border-color: #00ffff;
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 255, 255, 0.2);
+}
+
+.stat-card span {
+    font-size: 14px;
+    color: #ccc;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.stat-card strong {
+    font-size: 24px;
+    color: #ff00ff;
+    text-shadow: 0 0 5px #ff00ff;
+}
+
+.achievements-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.achievement-card {
+    background: linear-gradient(90deg, rgba(255, 0, 255, 0.2), transparent);
+    padding: 15px 20px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    border-left: 4px solid #ff00ff;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.trophy {
+    font-size: 24px;
+}
+
+.no-data {
+    color: #888;
+    font-style: italic;
+}
